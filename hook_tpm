@@ -42,10 +42,10 @@ EOF
         iplink set lo up
         tcsd
 
-        tpm_unsealdata -z -i "$tpmkeyfile" -o "$ckeyfile"
+        tpm_unsealdata -z -i "$tpmkeyfile" -o "$ckeyfile" > /dev/null 2>&1
         unseal=$?
 	if [ $unseal -eq 1 ]; then
-            tpm_unsealdata -i "$tpmkeyfile" -o "$ckeyfile"
+            tpm_unsealdata -i "$tpmkeyfile" -o "$ckeyfile" > /dev/null 2>&1
             unseal=$?
         fi
 
@@ -63,7 +63,6 @@ EOF
         24)
             echo
             echo "!!! TPM WARNING: PCR HAS BEEN ALTERED !!!"
-            echo
             echo "This is an indication that the boot configuration has changed since the TPM"
             echo "keyfile was generated. This is normal after kernel updates or firmware changes,"
             echo "however this could also indicate a malicious change to your system."
