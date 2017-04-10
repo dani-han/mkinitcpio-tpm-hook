@@ -11,7 +11,7 @@ The `tpm` hook attempts to "unseal" a dm-crypt keyfile previously sealed by the
 TPM. This file must reside on an unencrypted filesystem available to the kernel
 at boot. For example, assuming your unencrypted keyfile is at `/root/mykey`:
 
-    # tpm_sealdata -i /root/mykey -o /boot/mykey.enc -p 0 -p 1 -p 2 -p 3 -p 4 -p 5 -p 6 -p 7
+    # tpm_sealdata -i /root/mykey -o /boot/mykey.enc -p 0 -p 1 -p 2 -p 3 -p 5 -p 7 -p 8
 
 After generating a TPM-sealed keyfile, 'tpmkey=device:fstype:path' should be
 specified on the kernel cmdline, where 'device' represents the raw block device

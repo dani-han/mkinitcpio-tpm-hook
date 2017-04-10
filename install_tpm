@@ -11,7 +11,6 @@ build() {
     add_file "/usr/lib/initcpio/tpm/hosts" "/etc/hosts"
     add_file "/usr/lib/initcpio/tpm/passwd" "/etc/passwd"
     add_file "/usr/lib/libnss_files.so.2"
-    add_file "/usr/lib/libgcc_s.so.1"
 
     add_runscript
 }
